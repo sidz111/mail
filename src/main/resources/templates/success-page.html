@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Success Page</title>
+    <style>
+    /* Resetting some default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Setting up body with a gradient background */
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #1f1f1f, #000000);
+        color: #fff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Container for centering the message */
+    .container {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 40px 50px;
+        border-radius: 15px;
+        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px); /* Adding a frosted glass effect */
+        border: 1px solid #444;
+    }
+
+    /* Styling the title */
+    .title {
+        font-size: 3em;
+        color: #00FF00;
+        text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+        animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Title animation */
+    @keyframes neon {
+        0% {
+            text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+        }
+        100% {
+            text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
+        }
+    }
+
+    /* Styling the success message */
+    .message {
+        font-size: 1.8em;
+        color: #fff;
+        text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+        margin-top: 20px;
+        letter-spacing: 1px;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 2.5em;
+        }
+
+        .message {
+            font-size: 1.5em;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Success!</h1>
+        <p class="message" th:text="${success}"></p>
+    </div>
+</body>
+</html>

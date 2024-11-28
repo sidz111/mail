@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mail Sender App</title>
+   <style>
+   /* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting up body with a gradient background */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #000000);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Container for centering the form */
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Adding a frosted glass effect */
+    border: 1px solid #444;
+}
+
+/* Styling the title */
+.title {
+    font-size: 3em;
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+/* Title animation */
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
+    }
+    100% {
+        text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
+    }
+}
+
+/* Styling the input fields */
+.input-field {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #222;
+    color: #fff;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.input-field::placeholder {
+    color: #bbb;
+    opacity: 0.7;
+}
+
+/* Input focus effect */
+.input-field:focus {
+    background-color: #333;
+    border: 2px solid #00FF00;
+    box-shadow: 0 0 15px #00FF00;
+}
+
+/* Message box (textarea) with more space */
+textarea.input-field {
+    height: 150px; /* Giving more height to the message box */
+    resize: vertical; /* Allowing resizing */
+}
+
+/* Submit button with futuristic style */
+.submit-btn {
+    background-color: #00FF00;
+    color: #000;
+    padding: 15px 25px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00FF00, #00CC00, #009900);
+    animation: slide 1.5s infinite ease;
+}
+
+.submit-btn:hover {
+    background-color: #00CC00;
+    color: #000;
+    box-shadow: 0 0 20px #00FF00;
+}
+
+.submit-btn:active {
+    background-color: #009900;
+    box-shadow: 0 0 10px #009900;
+}
+
+/* Submit button animation */
+@keyframes slide {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    .input-field, .submit-btn {
+        font-size: 1em;
+    }
+}
+
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Mail Sender App</h1>
+        <form action="/mail" method="get" class="mail-form">
+            <input type="text" name="to" placeholder="Recipient's Email" class="input-field" />
+            <input type="text" name="subject" placeholder="Subject" class="input-field" />
+            <textarea name="msg" placeholder="Message" class="input-field"></textarea>
+            <button type="submit" class="submit-btn">Send Mail</button>
+        </form>
+    </div>
+</body>
+</html>
